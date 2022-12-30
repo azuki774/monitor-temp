@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Remo",
+    "id": "xxxxxxxxxxxxxxxxxxxxxxxx",
+    "created_at": "2021-12-11T02:03:40Z",
+    "updated_at": "2021-12-26T00:57:50Z",
+    "mac_address": "xx:xx:xx:xx:xx:xx",
+    "bt_mac_address": "xx:xx:xx:xx:xx:xx",
+    "serial_number": "xxxxxxxxxxxxxx",
+    "firmware_version": "Remo/1.6.4",
+    "temperature_offset": 0,
+    "humidity_offset": 0,
+    "users": [
+      {
+        "id": "xxxxxx",
+        "nickname": "xxxxxx",
+        "superuser": true
+      }
+    ],
+    "newest_events": {
+      "hu": {
+        "val": 36,
+        "created_at": "2021-12-26T03:15:30Z"
+      },
+      "il": {
+        "val": 44,
+        "created_at": "2021-12-26T02:51:46Z"
+      },
+      "mo": {
+        "val": 1,
+        "created_at": "2021-12-26T03:18:39Z"
+      },
+      "te": {
+        "val": 18.8,
+        "created_at": "2021-12-26T03:13:30Z"
+      }
+    }
+  }
+]
