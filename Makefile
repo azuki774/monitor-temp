@@ -1,4 +1,4 @@
-container_name:=monitoring-temp
+container_name:=monitor-temp
 
 .PHONY: build
 build:
