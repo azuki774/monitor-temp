@@ -2,4 +2,5 @@
 LAT=$1
 LON=$2
 APPID=$3
-cat mockdata/getOpenWeather.mock
+CURRENT=$(cd $(dirname $0);pwd)
+cat "${CURRENT}/mockdata/getOpenWeather.mock" | jq '.current'

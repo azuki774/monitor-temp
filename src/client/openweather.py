@@ -1,15 +1,21 @@
 import os
 import subprocess
 import json
+from influxdb_client import Point
 
 def fetch_open():
-    SHELL_PATH = '/app/scripts/getOpenWeather.sh'
+    print(os.environ['MOCK_MODE'])
+    if os.environ['MOCK_MODE'] == "1":
+        print("USE mock")
+        SHELL_PATH = '/app/scripts/mock_getOpenWeather.sh'
+    else:
+        SHELL_PATH = '/app/scripts/getOpenWeather.sh'
     OPEN_TOKEN = os.environ['OPEN_TOKEN']
     LAT = os.environ['OPEN_LAT']
     LON = os.environ['OPEN_LON']
     resultValue = subprocess.run([SHELL_PATH, LAT, LON, OPEN_TOKEN], capture_output=True, text=True)
     res_json = json.loads(resultValue.stdout)
-    return res_json["current"]
+    return res_json
 
 def open_main():
     openValues = fetch_open()

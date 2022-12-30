@@ -1,3 +1,4 @@
 #!/bin/bash -e
 TOKEN=$1
-cat mockdata/getOpenWeather.mock
+CURRENT=$(cd $(dirname $0);pwd)
+cat "${CURRENT}/mockdata/getOpenWeather.mock" | jq ".[]"

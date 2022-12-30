@@ -1,0 +1,35 @@
+version: '3'
+services:
+  monitor-temp-client-open:
+    image: monitor-temp-client:latest
+    container_name: monitor-temp-client-open
+    command: ["open"]
+    environment:
+      - INFLUXDB_HOST=http://monitor-temp-db:8086
+      - INFLUXDB_ORG=my-org
+      - INFLUXDB_BUCKET_NAME=monitortemp
+      - INFLUXDB_TOKEN=my-super-secret-auth-token
+      - OPEN_TOKEN=my-super-secret-auth-token 
+      - OPEN_LAT=123.45
+      - OPEN_LON=123.45
+      - MOCK_MODE=1
+    networks:
+    - external-monitor-temp
+
+  monitor-temp-client-remo:
+    image: monitor-temp-client:latest
+    container_name: monitor-temp-client-remo
+    command: ["remo"]
+    environment:
+      - INFLUXDB_HOST=http://monitor-temp-db:8086
+      - INFLUXDB_ORG=my-org
+      - INFLUXDB_BUCKET_NAME=monitortemp
+      - INFLUXDB_TOKEN=my-super-secret-auth-token
+      - REMO_TOKEN=my-super-secret-auth-token
+      - MOCK_MODE=1
+    networks:
+    - external-monitor-temp
+
+networks:
+  external-monitor-temp:
+    external: true

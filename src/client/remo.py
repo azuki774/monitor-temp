@@ -1,9 +1,14 @@
 import os
 import subprocess
 import json
+from influxdb_client import Point
 
 def fetch_remo():
-    SHELL_PATH = '/app/scripts/getDevices.sh'
+    if os.environ['MOCK_MODE'] == "1":
+        print("USE mock")
+        SHELL_PATH = '/app/scripts/mock_getDevices.sh'
+    else:
+        SHELL_PATH = '/app/scripts/getDevices.sh'
     REMO_TOKEN = os.environ['REMO_TOKEN']
     resultValue = subprocess.run([SHELL_PATH, REMO_TOKEN], capture_output=True, text=True)
     res_json = json.loads(resultValue.stdout)

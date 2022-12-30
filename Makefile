@@ -1,13 +1,17 @@
-container_name:=monitor-temp
+container_name:=monitor-temp-client
 
-.PHONY: build
+.PHONY: build start stop start-client
 build:
 	docker build -t $(container_name) -f build/Dockerfile .
 
-.PHONY: start
 start:
-	docker compose -f deployment/compose-local.yml up -d
+	docker network create external-monitor-temp
+	docker compose -f deployment/compose-local-db.yml up -d
 
-.PHONY: stop
 stop:
-	docker compose -f deployment/compose-local.yml down
+	docker compose -f deployment/compose-local-db.yml down
+	docker network rm external-monitor-temp
+
+start-client:
+	- docker stop monitor-temp-client
+	docker compose -f deployment/compose-local-client.yml up -d

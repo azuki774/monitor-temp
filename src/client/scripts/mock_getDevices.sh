@@ -1,3 +1,4 @@
 #!/bin/bash -e
 TOKEN=$1
-cat mock_getDevices.mock
+CURRENT=$(cd $(dirname $0);pwd)
+cat "${CURRENT}/mockdata/getDevices.mock" | jq ".[]"
