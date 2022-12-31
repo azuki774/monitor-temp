@@ -12,7 +12,7 @@ services:
       - OPEN_TOKEN=my-super-secret-auth-token 
       - OPEN_LAT=123.45
       - OPEN_LON=123.45
-      - MOCK_MODE=1
+      - MOCK_MODE=mock
     networks:
     - external-monitor-temp
 
@@ -26,7 +26,7 @@ services:
       - INFLUXDB_BUCKET_NAME=monitortemp
       - INFLUXDB_TOKEN=my-super-secret-auth-token
       - REMO_TOKEN=my-super-secret-auth-token
-      - MOCK_MODE=1
+      - MOCK_MODE=mock
     networks:
     - external-monitor-temp
 
