@@ -4,7 +4,7 @@ import json
 from influxdb_client import Point
 
 def fetch_remo():
-    if os.environ['MOCK_MODE'] == "1":
+    if os.environ['MOCK_MODE'] == "mock":
         print("USE mock")
         SHELL_PATH = '/app/scripts/mock_getDevices.sh'
     else:

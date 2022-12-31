@@ -5,7 +5,7 @@ from influxdb_client import Point
 
 def fetch_open():
     print(os.environ['MOCK_MODE'])
-    if os.environ['MOCK_MODE'] == "1":
+    if os.environ['MOCK_MODE'] == "mock":
         print("USE mock")
         SHELL_PATH = '/app/scripts/mock_getOpenWeather.sh'
     else:
